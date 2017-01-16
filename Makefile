@@ -1,5 +1,7 @@
 clean:
-	rm -rf ecs_task.egg-info
+	rm -rf .cache
+	rm -rf .tox
+	rm -rf ecstask.egg-info
 	find . -name \*.pyc -delete
 
 .PHONY: clean

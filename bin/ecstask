@@ -4,7 +4,7 @@ import sys
 
 import click
 
-import ecs_task
+import ecstask
 
 
 @click.group()
@@ -17,7 +17,7 @@ def cli():
 @click.option('--var', multiple=True, type=(unicode, unicode))
 def generate(template, var):
     variables = dict((x, y) for x, y in var)
-    print ecs_task.generate(template, variables)
+    print ecstask.generate(template, variables)
 
 
 if __name__ == '__main__':
