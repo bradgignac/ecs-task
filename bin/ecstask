@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+
+import sys
+
+import click
+
+import ecstask
+
+
+@click.group()
+def cli():
+    pass
+
+
+@cli.command(help='Generate a task definition from a template')
+@click.argument('template', type=click.File(), default=sys.stdin)
+@click.option('--var', multiple=True, type=(str, str))
+def generate(template, var):
+    variables = dict((x, y) for x, y in var)
+    print(ecstask.generate(template, variables))
+
+
+if __name__ == '__main__':
+    cli()
